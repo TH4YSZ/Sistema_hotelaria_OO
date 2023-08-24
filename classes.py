@@ -18,22 +18,31 @@ class Hotel(Cliente):
     
     def login(self, ccpf, csenha):
         for cliente in self._Clientes:
-            if cliente['CPF:'] == ccpf and cliente['Senha'] == csenha:
+            if cliente['CPF:'] == ccpf and cliente['Senha'] == csenha:                
                 print("Usuário válido. O que deseja fazer agora?")
-                print("1 - Reservar")
-                print("2 - Desmarcar a reserva")
-                print("3 - Voltar")
-                print("4 - Sair")
-                menuu = int(input("Qual opção deseja"))
-                
+                print("[1] Reservar")
+                print("[2] Desmarcar a reserva")
+                print("[3] Voltar")
+                print("[4] Sair")
+                menuu = int(input("Qual opção deseja?: "))
                 match menuu:
                     case 1:
-                        print("continuar lógica.")
-                        
-                
+                        Quartos.Reserva()
+                        a = 1
+                    case 2:
+                        Quartos.Desmarcar()
+                        a = 1
+                    case 3:
+                        a = 1
+                        break
+                    case 4:
+                        a = 0                        
+                        break         
+                    case _:
+                        print ("Opção inválida")
             else:
                 print("CPF ou senha inválido. Tente fazer o login novamente ou faça um cadastro.")
-      
+        return a
         
 class Quartos(Hotel):
 
@@ -43,11 +52,26 @@ class Quartos(Hotel):
         self._valorfinal = valorfinal
         self.quartos = {'Ap de luxo': 200.00,' Ap Master': 150.00, ' Ap Simples': 100.00, 'Ap Simples Casal': 120.00, 'Ap Duplo': 130.00, 'Ap Duplo Casal': 140.00}
     
-    def check(self):
-        data  = int (input(""))
+    def Marcar(self):
+        checkin = {'cliente':data}
+        data = input ("Digite a data para o check-in deste modo 'ANO/MÊS/DIAS ")
+        
+        marcado = datetime.datetime.strptime (data, "%Y-%m-%d").date()
+
+        
+
+
+
+
+    
+    
+    def Desmascar(self):
+        print
+
 
     def valorfinal():
         teste = 0
+        
     
     def esta_disponivel(self, data_inicio, data_fim):
         for inicio_reserva, fim_reserva in self.reservas:
@@ -55,13 +79,9 @@ class Quartos(Hotel):
                 return False
         return True
 
-    
-    
-    
-    
-    
     def listar_quartos (self):
         print ("Esses são nossos quartos disponíveis e seus preços:")
+        
         
 
 # class APLuxo(Quartos):
@@ -70,13 +90,9 @@ class Quartos(Hotel):
 #     #     self.
 # 
 
-# class APMaster(Quartos):
-#     # self.Reserva = []
-#     self.Descricao = " - Espaço Amplo; \n - Área de Estar; \n - Decoração Elegante; \n - Cama Luxuosa; \n - Benheiro Privativo; \n - Comodidades de luxo; \n - Vista Privilegiada; \n - Serviço Personalizado."
-
-#     def getDescricao():
-#         return Descricao
-
+class APMaster(Quartos):
+    self.Reserva = []
+    descricao = "- Espaço Amplo; - Área de Estar;  - Decoração Elegante; - Cama Luxuosa; - Benheiro Privativo; - Comodidades de luxo; - Vista Privilegiada; - Serviço Personalizado."
 
 # class APSimples(Quartos):
 
@@ -85,4 +101,3 @@ class Quartos(Hotel):
 # class APDuplo(Quartos):
 
 # class APDuploCasal(Quartos):
-

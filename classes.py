@@ -16,9 +16,9 @@ class Hotel():
         cliente = {"Nome:": nome, "CPF:": cpf, "Telefone:": telefone, "Email" :email, "Senha": senha} 
         self._Clientes.append(cliente)
     
-    def login(self, cpf, senha):
+    def login(self, ccpf, csenha):
         for cliente in self._Clientes:
-            if cliente["CPF:"] == cpf and cliente["Senha:"] == senha:
+            if cliente['CPF:'] == ccpf and cliente['Senha'] == csenha:
                 return cliente
             else:
                 print("CPF ou senha inválido.")
@@ -34,27 +34,27 @@ class Quartos(Hotel):
     
 
     def listar_quartos (self):
-        print ("Esses são nossos quartos disponíveis:",  )
+        print ("Esses são nossos quartos disponíveis e seus preços:",)
         
 
 
 
 
 
-class APLuxo(Quartos):
+# class APLuxo(Quartos):
 
-    def __init__(self):
-        self.
-
-
+#     # def __init__(self):
+#     #     self.
 
 
-class APMaster(Quartos):
 
-class APSimples(Quartos):
 
-class APSimplesCasal(Quartos):
+# class APMaster(Quartos):
 
-class APDuplo(Quartos):
+# class APSimples(Quartos):
 
-class APDuploCasal(Quartos):
+# class APSimplesCasal(Quartos):
+
+# class APDuplo(Quartos):
+
+# class APDuploCasal(Quartos):

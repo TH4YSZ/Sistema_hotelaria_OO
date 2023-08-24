@@ -13,9 +13,7 @@ while a == 1:
             ccpf = int(input("Digite o CPF: "))
             csenha = input("Digite a senha: ")
             hotel.login(ccpf,csenha)
-            
-            
-
+           
      
         if menu == 2:
             os.system("cls")
@@ -26,6 +24,8 @@ while a == 1:
             cpf = int(input("Digite seu cpf: "))
             senha = input("Digite sua senha :")
             hotel.cliente(nome, telefone, email, cpf, senha)
+
+
             
 
         if menu == 3:

@@ -44,67 +44,204 @@ class Hotel(Cliente):
         return a
         
 class Quartos(Hotel):
-
-    def Reserva(self, checkin, checkout, valorfinal):
-        self._checkin = checkin
-        self._checkout = checkout
-        self._valorfinal = valorfinal
-        self.quartos = {'Ap de luxo': 200.00,' Ap Master': 150.00, ' Ap Simples': 100.00, 'Ap Simples Casal': 120.00, 'Ap Duplo': 130.00, 'Ap Duplo Casal': 140.00}
     
-    def Marcar(self,Clientes):
+    def Marcar(self):
         menuquartos = int (input("[1] AP de luxo \n[2] AP Master \n[3] AP Simples \n[4] AP Simples Casal \n[5] AP Duplo \n[6] AP Duplo Casal \n[7] Voltar"))
         match menuquartos:
             case 1:
-                print (APMaster())
+                APLuxo.ap_L()
             case 2:
-                print ("")
+                APMaster.ap_M()
             case 3:
-                print ("")
+                APSimples.ap_S()     
             case 4:
-                print ("")
+                APSimplesCasal.ap_SC()
             case 5:
-                print ("")
+                APDuplo.ap_D()
             case 6:
-                print ("")
+                APDuploCasal.ap_DC()
             case 7:
                 os.system("cls")
-        checkin = {Clientes:data}
-        data = input ("Digite a data para o check-in deste modo 'ANO/MÊS/DIAS ")
-        marcado = datetime.datetime.strptime (data, "%Y-%m-%d").date()
-        if marcado in checkin:
-            print("Essa data não está mais disponível, tente novamente.")
-        else:
-            print ("Check-in:",marcado,"Cliente",Cliente)
-        print ("Estas são as opções de quarto: ")
-        menuquartos = int (input("[1] AP de luxo \n[2] AP Master \n[3] AP Simples \n[4] AP Simples Casal \n[5] AP Duplo \n[6] AP Duplo Casal \n[7] Voltar"))
     
-    
-    def Desmascar(self):
-        print
+
+class APLuxo (Quartos):
+    def ap_L():
+        APL = 0
+        APL2 = 0
+        print ("AP Luxo \n \nDescrição: \n- Espaçoso e Acolhedor; \n- Cama de Qualidade Superior; \n- Área de Estar; \n-Varanda Privativa; \n-Decoração Sofisticada \n-Tecnologia Avançada; \n Serviço de Quarto 24 Horas. \n \nPreço da diária: R$7000,00")
+        quarto1 = int (input("[1] Quarto 1 \n[2] Quarto 2 \n[3] Voltar \nQual quarto deseja reservar?: "))
+        match quarto1:
+            case 1:
+                if APL == 0:
+                    diaria = int(input("Número de dias: "))
+                    valor_total = diaria*7000
+                    print(f"O valor total da reserva é: R$, {valor_total}")
+                    APL = 1
+                else:
+                    print("Este quarto está indisponível.")
+            case 2:
+                if APL2 == 0:
+                    diaria2 = int(input("Número de dias: "))
+                    valor_total2 = diaria2*7000
+                    print(f"O valor total da reserva é: R$, {valor_total2}")
+                    APL2 = 1
+                else:
+                    print("Este quarto está indisponível.")
+                    os.system("pause")
+                    os.system("cls")
+            case 3:
+                os.system("cls")
+            case _:
+                print("Opção inválida.")  
 
 
-    def valorfinal():
-        teste = 0
-        
-    
-    def esta_disponivel(self, data_inicio, data_fim):
-        for inicio_reserva, fim_reserva in self.reservas:
-            if data_inicio < fim_reserva and data_fim > inicio_reserva:
-                return False
-        return True
-
-    def listar_quartos (self):
-        print ("Esses são nossos quartos disponíveis e seus preços:")
-        
-        
 class APMaster(Quartos):
-    print("AP MASTER \n \nDescrição: \n- Espaço Amplo; \n- Área de Estar;  \n- Decoração Elegante; \n- Cama Luxuosa; \n- Benheiro Privativo; \n- Comodidades de luxo; \n- Vista Privilegiada; \n- Serviço Personalizado. \n \nPreço da diária: R$200,00.")
+    def ap_M():
+        APM = 0
+        APM2 = 0
+        print("AP MASTER \n \nDescrição: \n- Espaço Amplo; \n- Área de Estar;  \n- Decoração Elegante; \n- Cama Luxuosa; \n- Banheiro Privativo; \n- Comodidades de luxo; \n- Vista Privilegiada; \n- Serviço Personalizado. \n \nPreço da diária: R$300,00.")
+        quarto2 = int(input("[1] Quarto 1 \n[2] Quarto 2 \n[3] Voltar \nQual quarto deseja reservar?: "))
+        match quarto2:
+            case 1:
+                if APM == 0:
+                    diaria = int(input("Número de dias: "))
+                    valor_total = diaria*6200
+                    print(f"O valor total da reserva é: R$, {valor_total}")
+                    APM = 1
+                else:
+                    print("Este quarto está indisponível.")
+            case 2:
+                if APM2 == 0:
+                    diaria2 = int(input("Número de dias: "))
+                    valor_total2 = diaria2*6200
+                    print(f"O valor total da reserva é: R$, {valor_total2}")
+                    APM2 = 1
+                else:
+                    print("Este quarto está indisponível.")
+                    os.system("pause")
+                    os.system("cls")
+            case 3:
+                os.system("cls")
+            case _:
+                print("Opção inválida.")    
 
-    
-# class APSimples(Quartos):
+class APSimples(Quartos):
+    def ap_S():
+        APS = 0
+        APS2 = 0
+        print ("AP Simples \n \nDescrição: \n- Espaço confortável; \n- Cama de solteiro \n- Mesa de trabalho \n-Banheiro privativo \n-Televisão \n-Serviço de limpeza diário. \n \nPreço da diária: R$1000,00")
+        quarto3 = int (input("[1] Quarto 1 \n[2] Quarto 2 \n[3] Voltar \nQual quarto deseja reservar?: "))
+        match quarto3:
+            case 1:
+                if APS == 0:
+                    diaria = int(input("Número de dias: "))
+                    valor_total = diaria*1000
+                    print(f"O valor total da reserva é: R$, {valor_total}")
+                    APS = 1
+                else:
+                    print("Este quarto está indisponível.")
+            case 2:
+                if APS2 == 0:
+                    diaria2 = int(input("Número de dias: "))
+                    valor_total2 = diaria2*1000
+                    print(f"O valor total da reserva é: R$, {valor_total2}")
+                    APS2 = 1
+                else:
+                    print("Este quarto está indisponível.")
+                    os.system("pause")
+                    os.system("cls")
+            case 3:
+                os.system("cls")
+            case _:
+                print("Opção inválida.")  
 
-# class APSimplesCasal(Quartos):
+class APSimplesCasal():
+    def ap_SC():
+        APSC = 0
+        APSC2 = 0
+        print ("AP Simples \n \nDescrição: \n- Espaço confortável; \n- Cama King \n- Mesa de trabalho \n-Banheiro privativo \n-Televisão \n-Serviço de limpeza diário. \n \nPreço da diária: R$1500,00")
+        quarto4 = int (input("[1] Quarto 1 \n[2] Quarto 2 \n[3] Voltar \nQual quarto deseja reservar?: "))
+        match quarto4:
+            case 1:
+                if APSC == 0:
+                    diaria = int(input("Número de dias: "))
+                    valor_total = diaria*1500
+                    print(f"O valor total da reserva é: R$, {valor_total}")
+                    APS = 1
+                else:
+                    print("Este quarto está indisponível.")
+            case 2:
+                if APSC2 == 0:
+                    diaria2 = int(input("Número de dias: "))
+                    valor_total2 = diaria2*1500
+                    print(f"O valor total da reserva é: R$, {valor_total2}")
+                    APS2 = 1
+                else:
+                    print("Este quarto está indisponível.")
+                    os.system("pause")
+                    os.system("cls")
+            case 3:
+                os.system("cls")
+            case _:
+                print("Opção inválida.")
+        
 
-# class APDuplo(Quartos):
+class APDuplo(Quartos):
+    def ap_D():
+        APD = 0
+        APD2 = 0
+        print("AP Duplo \n \nDescrição: \n- Camas Confortáveis; \n- Área de Estar;  \n- Banheiro Privativo; \n- Ar Condicionado ou Aquecimento; \n- TV e Wi-Fi; \n- Serviço de Quarto; \n- Vista. \n \nPreço da diária: R$2500,00.")
+        quarto5 = int(input("[1] Quarto 1 \n[2] Quarto 2 \n[3] Voltar \nQual quarto deseja reservar?: "))
+        match quarto5:
+            case 1:
+                if APD == 0:
+                    diaria = int(input("Número de dias: "))
+                    valor_total = diaria*2500
+                    print(f"O valor total da reserva é: R$, {valor_total}")
+                    APD = 1
+                else:
+                    print("Este quarto está indisponível.")
+            case 2:
+                if APD2 == 0:
+                    diaria2 = int(input("Número de dias: "))
+                    valor_total2 = diaria2*2500
+                    print(f"O valor total da reserva é: R$, {valor_total2}")
+                    APD2 = 1
+                else:
+                    print("Este quarto está indisponível.")
+                    os.system("pause")
+                    os.system("cls")
+            case 3:
+                os.system("cls")
+            case _:
+                print("Opção inválida.") 
 
-# class APDuploCasal(Quartos):
+class APDuploCasal(Quartos):
+    def ap_DC():
+        APDC = 0
+        APDC2 = 0
+        print("AP MASTER \n \nDescrição: \n- Espaço Amplo; \n- Área de Estar;  \n- Decoração Elegante; \n- Cama Luxuosa; \n- Banheiro Privativo; \n- Comodidades de luxo; \n- Vista Privilegiada; \n- Serviço Personalizado. \n \nPreço da diária: R$300,00.")
+        quarto7 = int(input("[1] Quarto 1 \n[2] Quarto 2 \n[3] Voltar \nQual quarto deseja reservar?: "))
+        match quarto7:
+            case 1:
+                if APDC == 0:
+                    diaria = int(input("Número de dias: "))
+                    valor_total = diaria*3000
+                    print(f"O valor total da reserva é: R$, {valor_total}")
+                    APDC = 1
+                else:
+                    print("Este quarto está indisponível.")
+            case 2:
+                if APDC2 == 0:
+                    diaria2 = int(input("Número de dias: "))
+                    valor_total2 = diaria2*3000
+                    print(f"O valor total da reserva é: R$, {valor_total2}")
+                    APDC2 = 1
+                else:
+                    print("Este quarto está indisponível.")
+                    os.system("pause")
+                    os.system("cls")
+            case 3:
+                os.system("cls")
+            case _:
+                print("Opção inválida.")

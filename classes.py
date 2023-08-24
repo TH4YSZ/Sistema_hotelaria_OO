@@ -22,19 +22,16 @@ class Hotel(Cliente):
     def login(self, ccpf, csenha):
         for cliente in self._Clientes:
             if cliente['CPF:'] == ccpf and cliente['Senha'] == csenha:                
-                print("Usuário válido. O que deseja fazer agora? \n[1] Reservar \n[2] Desmarcar a reserva \n[3] Voltar \n[4] Sair")
+                print("Usuário válido. O que deseja fazer agora? \n[1] Reservar \n[2] Voltar \n[3] Sair")
                 menuu = int(input("Digite a opção desejada: "))
                 match menuu:
                     case 1:
                         Quartos.Marcar()
                         a = 1
                     case 2:
-                        Quartos.Desmarcar()
-                        a = 1
-                    case 3:
                         a = 1
                         break
-                    case 4:
+                    case 3:
                         a = 0                        
                         break         
                     case _:
